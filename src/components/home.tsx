@@ -3,7 +3,10 @@ import HeroSection from "./home/HeroSection";
 import FeatureHighlights from "./home/FeatureHighlights";
 import MissingPersonsGrid from "./dashboard/MissingPersonsGrid";
 import QuickActionPanel from "./dashboard/QuickActionPanel";
+import DatabaseConnectionTest from "./common/DatabaseConnectionTest";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -35,6 +38,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navbar */}
+      <Navbar />
       {/* Hero Section */}
       <HeroSection
         title="Help Find Missing Loved Ones with AI Technology"
@@ -70,88 +75,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <footer className="bg-slate-900 text-white py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Missing Person Finder</h3>
-              <p className="text-slate-300">
-                Leveraging AI technology to help reunite families with missing
-                loved ones.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Report Missing Person
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Report Sighting
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Interactive Map
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-slate-300 hover:text-white">
-                    FAQ
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact Us</h4>
-              <ul className="space-y-2">
-                <li className="text-slate-300">
-                  Email: contact@missingpersonfinder.org
-                </li>
-                <li className="text-slate-300">Phone: (555) 123-4567</li>
-                <li className="text-slate-300">
-                  Address: 123 Main St, Anytown, USA
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-slate-700 text-center text-slate-400">
-            <p>
-              © {new Date().getFullYear()} Missing Person Finder. All rights
-              reserved.
-            </p>
-          </div>
+      {/* Database Connection Test */}
+      <section className="py-8 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-md">
+          <DatabaseConnectionTest />
         </div>
-      </footer>
+      </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
