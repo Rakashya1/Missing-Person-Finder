@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { MapPin, UserSearch, AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface QuickActionPanelProps {
   onReportMissingPerson?: () => void;
@@ -25,9 +26,12 @@ const QuickActionPanel = ({
               onClick={onReportMissingPerson}
               className="w-full h-16 text-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-3"
               size="lg"
+              asChild
             >
-              <UserSearch className="h-6 w-6" />
-              <span>Report Missing Person</span>
+              <Link to="/report">
+                <UserSearch className="h-6 w-6" />
+                <span>Report Missing Person</span>
+              </Link>
             </Button>
             <p className="mt-3 text-sm text-gray-600 text-center">
               Submit details about a missing individual
@@ -39,9 +43,12 @@ const QuickActionPanel = ({
               onClick={onReportSighting}
               className="w-full h-16 text-lg bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center gap-3"
               size="lg"
+              asChild
             >
-              <AlertTriangle className="h-6 w-6" />
-              <span>Report Sighting</span>
+              <Link to="/sightings">
+                <AlertTriangle className="h-6 w-6" />
+                <span>Report Sighting</span>
+              </Link>
             </Button>
             <p className="mt-3 text-sm text-gray-600 text-center">
               Report a potential sighting with photo evidence
@@ -53,9 +60,12 @@ const QuickActionPanel = ({
               onClick={onViewMap}
               className="w-full h-16 text-lg bg-purple-600 hover:bg-purple-700 flex items-center justify-center gap-3"
               size="lg"
+              asChild
             >
-              <MapPin className="h-6 w-6" />
-              <span>View Interactive Map</span>
+              <Link to="/map">
+                <MapPin className="h-6 w-6" />
+                <span>View Interactive Map</span>
+              </Link>
             </Button>
             <p className="mt-3 text-sm text-gray-600 text-center">
               Explore reported sightings on our interactive map

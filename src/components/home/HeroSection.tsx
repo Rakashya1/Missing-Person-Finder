@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Search, UserPlus, MapPin } from "lucide-react";
 
@@ -37,17 +38,23 @@ const HeroSection = ({
               <Button
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white gap-2"
+                asChild
               >
-                <UserPlus size={20} />
-                {primaryCta}
+                <Link to="/report">
+                  <UserPlus size={20} />
+                  {primaryCta}
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white/10 hover:text-white gap-2"
+                asChild
               >
-                <MapPin size={20} />
-                {secondaryCta}
+                <Link to="/sightings">
+                  <MapPin size={20} />
+                  {secondaryCta}
+                </Link>
               </Button>
             </div>
           </div>
@@ -100,9 +107,14 @@ const HeroSection = ({
                 </div>
               </div>
 
-              <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 gap-2 justify-center">
-                View All Missing Persons
-                <ArrowRight size={16} />
+              <Button
+                className="w-full bg-white text-slate-900 hover:bg-slate-100 gap-2 justify-center"
+                asChild
+              >
+                <Link to="/map">
+                  View All Missing Persons
+                  <ArrowRight size={16} />
+                </Link>
               </Button>
             </div>
           </div>

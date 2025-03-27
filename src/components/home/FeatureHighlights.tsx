@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Brain, MapPin, Bell } from "lucide-react";
 
@@ -12,14 +13,32 @@ const Feature = ({
   icon,
   title,
   description = "Feature description",
-}: FeatureProps) => {
+  link,
+}: FeatureProps & { link?: string }) => {
   return (
-    <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-      <div className="p-3 mb-4 bg-primary/10 rounded-full text-primary">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold mb-2 text-center">{title}</h3>
-      <p className="text-gray-600 text-center">{description}</p>
+    <div
+      className={cn(
+        "flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300",
+        link && "cursor-pointer",
+      )}
+    >
+      {link ? (
+        <Link to={link} className="flex flex-col items-center w-full">
+          <div className="p-3 mb-4 bg-primary/10 rounded-full text-primary">
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-center">{title}</h3>
+          <p className="text-gray-600 text-center">{description}</p>
+        </Link>
+      ) : (
+        <>
+          <div className="p-3 mb-4 bg-primary/10 rounded-full text-primary">
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-center">{title}</h3>
+          <p className="text-gray-600 text-center">{description}</p>
+        </>
+      )}
     </div>
   );
 };
@@ -37,18 +56,21 @@ const FeatureHighlights = ({
       title: "AI Facial Recognition",
       description:
         "Advanced facial recognition technology to help identify missing persons with high accuracy.",
+      link: "/missing-persons",
     },
     {
       icon: <MapPin size={24} />,
       title: "Geolocation Tracking",
       description:
         "Interactive maps showing reported sightings and last known locations of missing individuals.",
+      link: "/map",
     },
     {
       icon: <Bell size={24} />,
       title: "Real-Time Notifications",
       description:
         "Instant alerts for potential matches delivered via multiple channels.",
+      link: "/login",
     },
   ],
   title = "Powerful Features",
@@ -69,6 +91,7 @@ const FeatureHighlights = ({
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
+              link={feature.link}
             />
           ))}
         </div>
